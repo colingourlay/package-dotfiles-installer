@@ -18,6 +18,10 @@
     "type": "git",
     "url": "http://github.com/colingourlay/package-dotfiles-installer.git"
   },
+  "scripts": {
+    "postinstall": "node index.js",
+    "postupdate": "node index.js"
+  },
   "license": "MIT",
   "dependencies": {
     "each-async": "~0.1.3",
