@@ -17,7 +17,7 @@ fs.realpath(__dirname, function (err, realpath) {
 
     var reversePath = realpath.split('/').reverse();
 
-    if ((reversePath[1] !== 'node_modules' && reversePath[1] !== 'node_modules') || reversePath[4] === 'lib') return;
+    if (reversePath[1] !== 'node_modules' || reversePath[3] !== 'node_modules' || reversePath[4] === 'lib') return;
 
     glob('**/*', { cwd: SRC_DIR, dot: true, mark: true }, function (err, paths) {
 
