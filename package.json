@@ -1,7 +1,7 @@
 {
   "name": "package-dotfiles-installer",
   "version": "0.2.0",
-  "description": "The installer for your fork of [package-dotfiles-example].",
+  "description": "The installer for your fork of [package-dotfiles].",
   "main": "index.js",
   "keywords": [
     "package-dotfiles",
