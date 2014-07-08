@@ -28,16 +28,23 @@ fs.realpath(__dirname, function (err, realpath) {
         paths.filter(function (path) {
             if (!/\/$/.test(path)) {
                 files.push({
+                    name: path.replace('gitignore', '.gitignore'),
                     src: join(SRC_DIR, path),
-                    dest: join(DEST_DIR, path)
+                    dest: join(DEST_DIR, path.replace('gitignore', '.gitignore'))
                 });
             }
         })
 
+        files.sort(function compare(a, b) {
+            if (a.name < b.name) return -1;
+            if (a.name > b.name) return 1;
+            return 0;
+        });
+
         if (files.length === 0) {
             return;
         } else {
-            log(files.length + ' files to copy: ' + paths.join(', '));
+            log(files.length + ' files to copy: ' + files.map(function (file) { return file.name; }).join(', '));
         }
 
         eachAsync(files, function (file, index, done) {
